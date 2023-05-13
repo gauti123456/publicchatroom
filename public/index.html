@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO Chat Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+      }
+      form {
+        display: flex;
+        margin-top: 10px;
+      }
+      form input[type="text"] {
+        flex: 1;
+        padding: 10px;
+      }
+      form input[type="file"] {
+        margin-left: 10px;
+      }
+      form button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+      }
+      li {
+        margin-bottom: 5px;
+      }
+      .image {
+        max-width: 100%;
+        max-height: 300px;
+        margin-top: 5px;
+      }
+      #chat {
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 800px;
+        height: 500px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      #messages {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+        height: 80%;
+        overflow-y: auto;
+      }
+      #chat-form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ccc;
+      }
+      #message {
+        flex-grow: 1;
+        margin-right: 10px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      #send-button {
+        flex-shrink: 0;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      #send-button:hover {
+        background-color: #3e8e41;
+      }
+      #send-button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 1px #666;
+        transform: translateY(1px);
+      }
+      #send-button:focus {
+        outline: none;
+      }
+      .chat-message {
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #dee2e6;
+        padding: 5px 0;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .chat-username {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <h1 style="text-align: center">Public Chat Room</h1>
+    <br /><br />
+    <div id="chat">
+      <ul id="messages"></ul>
+      <form id="chat-form">
+        <input id="message" type="text" placeholder="Enter your message" />
+        <input type="file" accept="image/*" />
+        <button>Send</button>
+      </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
